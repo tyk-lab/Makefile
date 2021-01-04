@@ -1,13 +1,11 @@
 
-.PHONY : test1 test2
+.PHONY : all first second third 
 
-TDelphi := Delphi Tang
-D.T.Software := D.T.
+all : first second third
+	@echo "\$$@ => $@"
+	@echo "$$^ => $^"
+	@echo "$$< => $<"
 	
-test1 :
-	@echo "$(MAKE_VERSION)"
-	@echo "$(CURDIR)"
-	@echo "$(.VARIABLES)"
-	
-test2 :
-	@echo "$(RM)"
+firtst:
+second:
+third:
