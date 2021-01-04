@@ -1,24 +1,13 @@
 
-CC := gcc
-TARGET := hello.exe
+.PHONY : test1 test2
 
-$(TARGET) : func.o main.o
-	$(CC) -o $@ $^
+TDelphi := Delphi Tang
+D.T.Software := D.T.
 	
-func.o : func.c
-	$(CC) -o $@ -c $^
+test1 :
+	@echo "$(MAKE_VERSION)"
+	@echo "$(CURDIR)"
+	@echo "$(.VARIABLES)"
 	
-main.o : main.c
-	$(CC) -o $@ -c $^
-
-
-.PHONY : rebuild clean all
-
-all : $(TARGET) 
-rebuild : clean all
-clean : 
-	del *.o $(TARGET) 
-	
-
-
-	
+test2 :
+	@echo "$(RM)"
