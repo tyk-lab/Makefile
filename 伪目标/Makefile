@@ -9,11 +9,12 @@ main.o : main.c
 	gcc -o main.o -c main.c
 
 
-.PHONY : rebuild clean all
-all : hello.exe
-rebuild : clean all
-clean :
-	del *.o hello.exe
 
+all : FORCE hello.exe 
+rebuild : FORCE clean all
+clean : FORCE
+	del *.o hello.exe
+	
+FORCE :
 
 	
