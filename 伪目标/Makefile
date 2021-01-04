@@ -7,7 +7,8 @@ func.o : func.c
 	
 main.o : main.c
 	gcc -o main.o -c main.c
-	
+
+.PHONY : clean
 clean :
 	del *.o hello.exe
 	
