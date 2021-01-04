@@ -1,23 +1,32 @@
+# ex1
+# x := foo
+# y := $(x)b
+# x := new
 
-CC := gcc
-TARGET := hello.exe
+# ex2
+# x = foo
+# y = $(x)b
+# x = new
 
-$(TARGET) : func.o main.o
-	$(CC) -o $(TARGET) func.o main.o
-	
-func.o : func.c
-	$(CC) -o func.o -c func.c
-	
-main.o : main.c
-	$(CC) -o main.o -c main.c
+# a = $(b)
+# b = $(c)
+# c = hello-makefile
 
-.PHONY : rebuild clean all
+# ex3
+x := foo
+y := $(x)b
+x ?= new
 
-all : $(TARGET)
-rebuild : clean all
-clean : 
-	del *.o $(TARGET)
-	
-FORCE :
+# ex4
+# x := foo
+# y := $(x)b
+# x += new
 
-	
+.PHONY : test
+
+test :
+	@echo "x => $(x)"
+	@echo "y => $(y)"
+	@echo "a => $(a)"
+	@echo "b => $(b)"
+	@echo "c => $(c)"
