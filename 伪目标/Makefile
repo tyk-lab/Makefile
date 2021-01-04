@@ -9,5 +9,5 @@ main.o : main.c
 	gcc -o main.o -c main.c
 	
 clean :
-	del *.o hello.out
+	del *.o hello.exe
 	
