@@ -1,30 +1,35 @@
 .PHONY : test
 
-var1 := A
+var1 :=
 var2 := $(var1)
-var3 :=
+
+var3 =
+var4 = $(var3)
+
+var3 = 3 
 
 test:
-    ifeq ($(var1),$(var2)) 
-		@echo "var1 == var2"
+    ifdef var1 
+		@echo "var1 is defined"
     else
-		@echo "var1 != var2"
-    endif
-    
-    ifneq ($(var3),)
-		@echo "var2 is NOT empty"    
-    else
-		@echo "var2 is empty"    
+		@echo "var1 is NOT defined"
     endif
     
     ifdef var2
-		@echo "var2 is NOT empty"    
+		@echo "var2 is defined"    
     else
-		@echo "var2 is empty"    
+		@echo "var2 is NOT defined"    
     endif
     
-    ifndef var3
-		@echo "var3 is empty"    
+    ifdef var3 
+		@echo "var3 is defined"
     else
-		@echo "var3 is NOT empty"    
+		@echo "var3 is NOT defined"
     endif
+    
+    ifdef var4
+		@echo "var4 is defined"    
+    else
+		@echo "var4 is NOT defined"    
+    endif
+ 
