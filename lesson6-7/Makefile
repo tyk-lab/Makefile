@@ -1,12 +1,24 @@
-src1 := a.cc.d b.cc.d c.cc.d
-obj1 := $(src1:.cc.d=.dd.o)
 
-test1 :
-	@echo "obj1 => $(obj1)"
-	
-	
-src2 := a11b.c a22b.c a33b.c
-obj2 := $(src2:a%b.c=x%y)
+CC := gcc
+TARGET := hello-makefile.exe
+OBJS := func.o main.o const.o a.c
+#OBJS := func.o main.o const.o 
+RM := del
 
-test2 :
-	@echo "obj2 => $(obj2)"
+$(TARGET) : $(OBJS)
+	$(CC) -o $@ $^
+
+$(OBJS) : %.o : %.c
+	$(CC) -o $@ -c $^
+
+.PHONY : rebuild clean all
+
+rebuild : clean all
+
+
+all : $(TARGET)
+
+clean :
+	$(RM) *.o $(TARGET)
+
+	
