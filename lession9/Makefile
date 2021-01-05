@@ -6,15 +6,15 @@ endef
 
 define func2
 	@echo "My name is $(0)"
-	@echo "Param 1 => $(1)"
-	@echo "Param 2 => $(2)"
 endef
 
-var := $(call func1)
-new := $(func1)
+var1 := $(call func1)
+var2 := $(call func2)
+var3 := $(abspath ./)
+var4 := $(abspath test.cpp)
 
 test :
-	@echo "new => $(new)"
-	@echo "var => $(var)"
-	$(call func1)  #@echo My name is func1
-	$(call func2, D.T.Software, delphi_tang)
+	@echo "var1 => $(var1)"
+	@echo "var2 => $(var2)"
+	@echo "var3 => $(var3)"
+	@echo "var4 => $(var4)"
