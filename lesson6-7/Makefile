@@ -1,24 +1,20 @@
 
-CC := gcc
-TARGET := hello-makefile.exe
-OBJS := func.o main.o const.o a.c
-#OBJS := func.o main.o const.o 
-RM := del
+hm := hello makefile
 
-$(TARGET) : $(OBJS)
-	$(CC) -o $@ $^
+override var := override-test
 
-$(OBJS) : %.o : %.c
-	$(CC) -o $@ -c $^
+define foo
+I'm fool!
+endef
 
-.PHONY : rebuild clean all
+override define cmd
+	@echo "run cmd ls ..."
+	@dir
+endef
 
-rebuild : clean all
-
-
-all : $(TARGET)
-
-clean :
-	$(RM) *.o $(TARGET)
-
+test :
+	@echo "hm => $(hm)"
+	@echo "var => $(var)"
+	@echo "foo => $(foo)"
+	${cmd}
 	
