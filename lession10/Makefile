@@ -1,12 +1,12 @@
 
 CC := gcc
 MKDIR := mkdir
-RM := rmdir
+RM := rmdir /s/q
 
-DIR_OBJS := objs
-DIR_TARGET := target
+DIRS = $(DIR_OBJS) $(DIR_TARGET)
 
-DIRS := $(DIR_OBJS) $(DIR_TARGET)
+DIR_OBJS = objs
+DIR_TARGET = target
 
 TARGET := $(DIR_TARGET)/hello-makefile.exe
 # main.c const.c func.c
