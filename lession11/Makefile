@@ -1,10 +1,8 @@
-OBJS := func.o main.o
+.PHONY : test a b c
 
-hello.exe : $(OBJS)
-	@gcc -o $@ $^
-	@echo "Target File ==> $@"
+test : a b
 
-$(OBJS) : %.o : %.c func.h
-	@gcc -o $@ -c $<
+test : b c
 
-
+test : 
+	@echo "$^"

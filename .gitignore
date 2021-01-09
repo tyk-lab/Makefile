@@ -79,3 +79,5 @@ packages/
 #Makefile files
 /lesson3/*.o
 /lession4/*.exe
+/lession11/*.o
+/lession11/*.exe
