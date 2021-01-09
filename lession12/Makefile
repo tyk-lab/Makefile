@@ -1,10 +1,22 @@
 
-.PHONY : all
+.PHONY : all clean
+
+MKDIR := mkdir
+RM := del
+CC := gcc
+
+SRCS := $(wildcard *.c)
+DEPS := $(SRCS:.c=.dep)
+
+-include $(DEPS)
 
 all :
-	set -e& \
-	mkdir test& \
-	cd test& \
-	mkdir subtest
+	@echo "all"
 	
+%.dep : %.c
+	@echo "Creating $@ ..."
+	$(CC) -MM -E $^ | sed 's,\(.*\)\.o[ :]*,objs/\1.o : ,g' > $@
+	
+clean :
+	$(RM) $(DEPS)
 	
