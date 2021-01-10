@@ -1,20 +1,17 @@
-SRCS := $(wildcard *.c)
-OBJS := $(SRCS:.c=.o)
+
 
 CC := gcc
 
-# 打印内部定义的变量
-all :
-	@echo "$(.VARIABLES)"
+app.out : main.o func.o
 
-# 内部规则/变量，编译段
-app.out : $(OBJS)
-	$(CC) -o $@ $^
-	$(RM) $^
-	@echo "Target ==> $@"
+	 $(CC) -lstdc++ -o $@ $^
 
-# 自定义规则
-%.o : %.c
-	@echo "my rule"
-	$(CC) -c -o $@ $^
+
+.c.o :
+	@echo "my suffix1 rule"
+	$(CC) -o $@ -c $^
+	
+.c :
+	@echo "my suffix rule"
+	$(CC) -o $@ -c $^
 	
