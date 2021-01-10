@@ -5,6 +5,6 @@
 all : 
 	@echo "this is all"
 	
-test.txt :
+test.txt : b.txt
 	@echo "creating $@ ..."
-	@echo "other : ; @echo "this is other" " > test.txt
+	
