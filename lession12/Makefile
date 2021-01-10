@@ -1,22 +1,10 @@
+.PHONY : all
 
-.PHONY : all clean
+-include test.txt
 
-MKDIR := mkdir
-RM := del
-CC := gcc
-
-SRCS := $(wildcard *.c)
-DEPS := $(SRCS:.c=.dep)
-
--include $(DEPS)
-
-all :
-	@echo "all"
+all : 
+	@echo "this is all"
 	
-%.dep : %.c
-	@echo "Creating $@ ..."
-	$(CC) -MM -E $^ | sed 's,\(.*\)\.o[ :]*,objs/\1.o : ,g' > $@
-	
-clean :
-	$(RM) $(DEPS)
-	
+test.txt :
+	@echo "creating $@ ..."
+	@echo "other : ; @echo "this is other" " > test.txt
