@@ -1,17 +1,11 @@
 
-OBJS := func.o main.o
-INC := inc
-SRC := src
-CFLAGS := -I $(INC)
+VPATH := src
+CFLAGS := -I inc
+GPATH := src
 
-vpath %.h $(INC)
-vpath %.c $(SRC)
-
-hello.exe : $(OBJS)
+app.out : func.o main.o
 	@gcc -o $@ $^
 	@echo "Target File ==> $@"
-	
-# vpath %.h
 
-$(OBJS) : %.o : %.c func.h
+%.o : %.c inc/func.h
 	@gcc $(CFLAGS) -o $@ -c $<
